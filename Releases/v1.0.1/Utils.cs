@@ -3,28 +3,6 @@ using UnityEngine;
 
 namespace Eden.Utils
 {
-	public static class Standards
-	{
-		public static float CreateEpsilon(int bound, float sensitivity)
-		{
-			sensitivity = Mathf.Clamp01(sensitivity) / 1.6f + 0.375f;
-			bound = Mathf.Clamp(bound, 2, 35); float v = 0.1f;
-
-			for (int i = 0; i < bound; i++)
-			{
-				if (1f + v / (3.2f * sensitivity) != 1f)
-				{
-					v /= 3.2f * sensitivity;
-				}
-				else
-				{
-					break;
-				}
-			}
-			return v;
-		}
-	}
-	
 	public static class V1
 	{
 		public static bool InRange(float f, Vector2 range)
@@ -330,7 +308,7 @@ namespace Eden.Utils
 		}
 	}
 
-	public class TriVal
+	public class TriVal //experimental 3-way boolean
 	{
 		public int value
 		{
@@ -344,7 +322,7 @@ namespace Eden.Utils
 		}
 	}
 
-	public static class Bez2
+	public static class Bez2 //v2 bezier
 	{
 		public static Vector2 EvaluateCubic(Vector2 p1, Vector2 p2, Vector2 p3, float t)
 		{
@@ -391,7 +369,7 @@ namespace Eden.Utils
 		}
 	}
 
-	public static class Bez3
+	public static class Bez3 //v3 bezier
 	{
 		public static Vector3 EvaluateCubic(Vector3 p1, Vector3 p2, Vector3 p3, float t)
 		{
